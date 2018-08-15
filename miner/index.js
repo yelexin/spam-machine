@@ -10,7 +10,7 @@ mongoose.connect('mongodb://yelexin:secretvalley@localhost/proxy')
 async function go() {
 
   // search in 163 accounts
-  for (let j = 0; j < 100000; j++) {
+  for (let j = 0; j < accounts.length; j++) {
     console.log('round', j)
     let proxies = await GoodProxy.find({$and:[{protocol: 'socks5'},{stable:true}]})
     let res = null

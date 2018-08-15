@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const GoodProxy = require('../common/schemas/goodProxySchema')
 const Gold = require('../common/schemas/goldSchema')
 const targets = require('../target/target')
+const config = require('./config')
 mongoose.connect('mongodb://yelexin:secretvalley@localhost/proxy')
 var sleep = async (duration) => {
   return new Promise((resolve, reject) => {
@@ -10,9 +11,9 @@ var sleep = async (duration) => {
   });
 };
 async function go() {
-  for (let i = 5808; i < targets.length; i++) {
+  for (let i = 0; i < targets.length; i++) {
     console.log('round ', i)
-    await sleep(30000)
+    await sleep(config.delay)
     let gold = await Gold.find({})
     let proxies = await GoodProxy.find({protocol: 'socks5'})
     let r = Math.floor(Math.random() * gold.length)
