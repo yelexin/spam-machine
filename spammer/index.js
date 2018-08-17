@@ -11,7 +11,7 @@ var sleep = async (duration) => {
   });
 };
 async function go() {
-  for (let i = 0; i < targets.length; i++) {
+  for (let i = config.startFrom; i < targets.length; i++) {
     console.log('round ', i)
     await sleep(config.delay)
     let gold = await Gold.find({})
