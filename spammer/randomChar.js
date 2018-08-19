@@ -27,5 +27,6 @@ module.exports = function randomChar() {
     'n',
     'm' ]
 
-  return words[Math.random() * words.length]
+  return words[Math.floor(Math.random() * words.length)]
+
 }
