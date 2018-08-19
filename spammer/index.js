@@ -44,6 +44,7 @@ async function go() {
     try {
       let res = await transporter.sendMail(mailOptions)
       console.log(res)
+      console.log('使用账号',gold[r].email, gold[r].password)
     } catch (e) {
       console.log(e)
       if(e.command === 'DATA'||e.command === 'CONN') {
